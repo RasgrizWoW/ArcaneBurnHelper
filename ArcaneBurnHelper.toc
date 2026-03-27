@@ -1,9 +1,11 @@
 ## Interface: 20504
 ## Title: Arcane Burn Helper
 ## Notes: TBC Anniversary Arcane Mage ETK/low-mana/OOM helper with combat burn cooldown cues
-## Author: OpenAI
+## Author: RasgrizWoW
 ## Version: 0.6.5.2
 ## SavedVariables: ArcaneBurnHelperDB
+## X-License: MIT
+## X-Website: https://github.com/RasgrizWoW/ArcaneBurnHelper
 
 Config.lua
 UI.lua
