@@ -354,8 +354,14 @@ SlashCmdList["ARCANEBURNHELPER"] = function(msg)
         print("ArcaneBurnHelper: reset")
     elseif msg == "options" then
         ns.OpenOptions()
+    elseif msg == "show" then
+        if ABH then ABH:Show() end
+        print("ArcaneBurnHelper: shown")
+    elseif msg == "hide" then
+        if ABH then ABH:Hide() end
+        print("ArcaneBurnHelper: hidden")
     else
-        print("/abh lock | unlock | reset | options")
+        print("/abh lock | unlock | reset | options | show | hide")
     end
 end
 
