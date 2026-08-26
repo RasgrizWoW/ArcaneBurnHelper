@@ -1,0 +1,40 @@
+name: Package and Release ArcaneBurnHelper
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Package and publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate tag matches TOC version
+        shell: bash
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          TOC_VERSION=$(sed -n 's/^## Version:[[:space:]]*//p' ArcaneBurnHelper.toc | tr -d '\r')
+
+          echo "Git tag version: ${TAG_VERSION}"
+          echo "TOC version:     ${TOC_VERSION}"
+
+          if [[ "${TAG_VERSION}" != "${TOC_VERSION}" ]]; then
+            echo "::error::Tag version v${TAG_VERSION} does not match TOC version ${TOC_VERSION}"
+            exit 1
+          fi
+
+      - name: Package and publish addon
+        uses: BigWigsMods/packager@v2
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
