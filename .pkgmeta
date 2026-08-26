@@ -1,0 +1,5 @@
+package-as: ArcaneBurnHelper
+
+ignore:
+  - .github
+  - .gitignore

@@ -1,0 +1,33 @@
+# Packaged releases
+*.zip
+.releases/
+release/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.tmp
+
+# Backup files
+*.bak
+*.backup
+
+# Logs
+*.log
+
+# Lua tooling/cache
+.luarocks/
+luac.out
+
+# Local test / scratch files
+test/
+tests-local/
+scratch/
